@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&family=Merriweather:wght@300&family=Montserrat:ital,wght@0,300;0,500;1,400&display=swap');
+
+body {
+    margin: 0;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    background: #5b5b5b;
+    color: #b67171;
+    background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+}
+
+.alternative-background {
+    padding: 10px 0;
+    background: #d8c292;
+    color: #5b5b5b;
+    background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+}
+
+h1 {
+    font-size: 4em;
+    font-family: 'Ubuntu Mono', monospace;
+    margin: 50px 20px;
+}
+
+p {
+    font-size: 2em;
+    font-family: 'Ubuntu Mono', monospace;
+    margin: 50px 20px;
+}
+
+h2 {
+    font-size: 3em;
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+.btn {
+    margin: 20px;
+}
+
+.box {
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    padding: 0 10px;
+    border: 1px solid black;
+}
+
+.footer {
+    padding: 10px 0;
+    color: #b67171;
+}
+
+.boards {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.solutionBoard {
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #b67171;
+}
