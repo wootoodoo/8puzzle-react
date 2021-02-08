@@ -3,7 +3,6 @@ import Board from "./Board"
 
 function DisplaySolution(props) {
     const history = props.history;
-    console.log("history: ", history);
     return <div className="alternative-background">
                 {
                     props.numSteps !== -1 ? 

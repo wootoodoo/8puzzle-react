@@ -1,11 +1,10 @@
 import React from "react";
-// import Fab from "@material-ui/core/Button";
 
 function Box(props) {
     return (
         
         <div 
-            className="col-lg-1 box" 
+            className="col-lg-1 col-md-2 col-sm-2 box" 
             onDrop={(e) => props.drop(e)} 
             onDragOver={(e) => props.allowDrop(e)} 
             id={props.value}>
@@ -15,7 +14,7 @@ function Box(props) {
                 id={props.value} 
                 row={props.row} 
                 col={props.col}>
-                    {props.value}
+                    {props.displayValue}
             </h2>
         </div>
     )

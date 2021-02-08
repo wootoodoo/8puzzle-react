@@ -38,7 +38,7 @@ function App() {
     }
     
     function drag(ev) {
-        console.log(ev.target);
+        
         const data = JSON.stringify({
             id: ev.target.id,
             row: ev.target.attributes.row.value,
@@ -48,14 +48,23 @@ function App() {
     }
     
     function drop(ev) {
-
+        console.log(ev);
         ev.preventDefault();
         let movingBoxDataJSON = ev.dataTransfer.getData("text/plain");
         let movingBoxData = JSON.parse(movingBoxDataJSON)
-        let currentBoxData = {
-            id: ev.target.id,
+        let currentBoxData = {};
+        if (ev.target.attributes.id.value != 0) {
+            currentBoxData = {
+            id: ev.target.attributes.id.value,
             row: ev.target.attributes.row.value,
             col: ev.target.attributes.col.value
+        }}
+        else {
+            currentBoxData = {
+                id: ev.target.attributes.id.value,
+                row: ev.target.childNodes[0].attributes.row.value,
+                col: ev.target.childNodes[0].attributes.col.value
+            }
         }
         
         // Change the array's state
@@ -68,8 +77,8 @@ function App() {
     
     return (
         <div>
-            <h1> 8 Puzzle Solver </h1>
-            <p>Drag and Drop the tiles surrounding the zero tile into it to generate a puzzle.</p>
+            <h1 className="title"> 8 Puzzle Solver </h1>
+            <p>Drag and Drop the tiles surrounding the empty tile to generate a puzzle.</p>
 
             <div>
                 <div>
