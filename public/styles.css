@@ -58,6 +58,10 @@ footer {
     font-size: 0.5em;
 }
 
+.bufferIcon {
+    width: 100px;
+}
+
 .boards {
     margin: auto;
     

@@ -1,11 +1,14 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import DisplaySolution from "./DisplaySolution"
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 function Solve(props) {
     const [ solutions, setSolutions ] = useState({});
     const [ receivedSolution, setReceivedSolution ] = useState(false);
+    const [ clicked, setClicked ] = useState(false);
    
     function solver() {
+        setClicked(true);
         const currentArray = props.problemArray;
         let arrayString = ""
         currentArray.map((row, rowIndex) => {
@@ -28,7 +31,9 @@ function Solve(props) {
             body: JSON.stringify(post)
         };
         fetch('https://lwhnjmvs47.execute-api.ap-southeast-1.amazonaws.com/Dev', request)
-            .then(response => response.json())
+            .then(response => {
+                setClicked(false);
+                return response.json()})
             .then(data => {
                 setSolutions({...data}); 
                 setReceivedSolution(true);
@@ -37,10 +42,18 @@ function Solve(props) {
 
     }
 
+    useEffect(() => {
+        console.log("rendering buffer icon");
+    }, [clicked]);
+
     return <div>
                 <button type="button" className="btn btn-dark btn-lg" 
                         onClick={solver}> SOLVE</button>
-
+                {
+                    clicked && <div>
+                            <CircularProgress color="primary"/>
+                        </div>
+                }
                 {receivedSolution && <DisplaySolution 
                     numSteps={solutions.numSteps}
                     timeInMillis={solutions.executionTimeInMillis}

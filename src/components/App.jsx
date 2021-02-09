@@ -1,4 +1,4 @@
-import React, {useState}  from "react";
+import React, {useState, useEffect}  from "react";
 import Box from "./Box";
 import Solve from "./Solve"
 import Footer from "./Footer"
@@ -48,7 +48,6 @@ function App() {
     }
     
     function drop(ev) {
-        console.log(ev);
         ev.preventDefault();
         let movingBoxDataJSON = ev.dataTransfer.getData("text/plain");
         let movingBoxData = JSON.parse(movingBoxDataJSON)
@@ -74,6 +73,10 @@ function App() {
         newArray[movingBoxData.row][movingBoxData.col] = currentBoxValue;
         setCurrentArray([...newArray]);
     }
+
+    useEffect(() => {
+        setCurrentArray(buildArray());
+    }, [dimensions]);
     
     return (
         <div>
