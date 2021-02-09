@@ -79,6 +79,7 @@ function App() {
         <div>
             <h1 className="title"> 8 Puzzle Solver </h1>
             <p>Drag and Drop the tiles surrounding the empty tile to generate a puzzle.</p>
+            <p>For mobile/tablet users, hold-down on the tile for 1 sec to move it</p>
 
             <div>
                 <div>
